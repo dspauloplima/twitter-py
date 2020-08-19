@@ -1,6 +1,6 @@
 altair==4.1.0
 mlxtend==0.17.3
-selenium==3.14.0
+webbrowser==2.7.18
 astor==0.8.1
 attrs==19.3.0
 backcall==0.2.0
