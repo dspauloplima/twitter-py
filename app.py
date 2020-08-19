@@ -1,5 +1,6 @@
 # import plotly.express as px
 import streamlit as st
+from functions import *
 # import pandas as pd
 # import numpy as np
 # import altair as alt
