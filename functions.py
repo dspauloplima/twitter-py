@@ -156,7 +156,7 @@ def most_words(df_tweets):
     my_stopwords = ['pra', 'pro', 'tb', 'vc', 'aí', 'tá', 'ah',
                     'eh', 'oh', 'msm', 'q', 'r', 'lá', 'ue', 'ué', 'pq']
 
-    s = pd.read_csv('../portuguese_stopwords.txt', header=None)
+    s = pd.read_csv('portuguese_stopwords.txt', header=None)
     stop = s.values.tolist()
     stopwords2 = []
     for i in stop:
