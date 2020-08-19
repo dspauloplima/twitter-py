@@ -15,10 +15,9 @@ from string import punctuation
 
 # FUNCTION OF 5 MOST RECENT TWEETS WITH THE HIGHEST NUMBER OF RETWEETS
 
-q_query = ' -filter:retweets'
 
 def extract_data(query, head=5, lang='pt', items=500):
-    # RETWEET = []
+    q_query = ' -filter:retweets'
     TWEET = []
     for tweet in tw.tweepy.Cursor(tw.api.search,
                                   q=query+q_query,
@@ -27,15 +26,11 @@ def extract_data(query, head=5, lang='pt', items=500):
                                   # collect the full text (over 140 characters)
                                   tweet_mode='extended'
                                   ).items(items):
-        # if ("RT @" in tweet.full_text):
-        #     RETWEET.append([tweet.id, tweet.created_at, tweet.user.location, tweet.full_text.replace('\n', ' '),
-        #                                   tweet.retweet_count, [e['text'] for e in tweet._json['entities']['hashtags']]])
-        # else:
+      
         TWEET.append([tweet.id, tweet.created_at, tweet.user.location, tweet.full_text.replace('\n', ' '),
                       tweet.retweet_count, [e['text'] for e in tweet._json['entities']['hashtags']]])
         TW = pd.DataFrame(TWEET, columns=[
                           'id', 'timestamp', 'location', 'tweet', 'Retweets', 'hashtags'])
-        # rtw = pd.DataFrame(data, RETWEET=['id', 'timestamp', 'location', 'tweet', 'retweet_count', 'hashtags'])
     return TW
 
 
