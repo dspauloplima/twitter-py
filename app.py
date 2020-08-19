@@ -9,7 +9,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from nltk import FreqDist
 import networkx as nx
-import webbrowser as wb
+import bokeh.models.widgets import Div
 
 from PIL import Image
 from pathlib import Path  # para a logo
@@ -82,20 +82,31 @@ def main():
     
 #     st.sidebar.markdown('')
     if st.sidebar.button('Denis Dinardi'):
-        denis = 'https://www.linkedin.com/in/denisdinardi/'
-        wb.open_new_tab(denis)
+        js = "window.open('www.linkedin.com/in/denisdinardi/')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
     if st.sidebar.button('Edson Guilherme'):
-        edson = 'https://www.linkedin.com/in/edson-guilherme-appoloni-correia-19897134/'
-        wb.open_new_tab(edson)
+        js = "window.open('www.linkedin.com/in/edson-guilherme-appoloni-correia-19897134/')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
     if st.sidebar.button('João Pedro'):
-        joao = 'https://www.linkedin.com/in/joão-chagas/'
-        wb.open_new_tab(joao)
+        js = "window.open('www.linkedin.com/in/joão-chagas/')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
     if st.sidebar.button('Nayara Moura'):
-        nayara = 'https://www.linkedin.com/in/nayara-cfm/'
-        wb.open_new_tab(nayara)
+        js = "window.open('www.linkedin.com/in/nayara-cfm/')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
     if st.sidebar.button('Paulo Lima'):
         paulo = 'https://www.linkedin.com/in/dspaulolima'
-        wb.open_new_tab(paulo)
+        js = "window.open('www.linkedin.com/in/dspaulolima/')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
     
     # FIM SIDE BAR
     
