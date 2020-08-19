@@ -1,21 +1,20 @@
-# import plotly.express as px
+import plotly.express as px
 import streamlit as st
 from functions import *
-# import pandas as pd
-# import numpy as np
-# import altair as alt
-# import pydeck as pdk
-# from wordcloud import WordCloud
-# import matplotlib.pyplot as plt
-# from nltk import FreqDist
-# import networkx as nx
-# import webbrowser as wb
+import pandas as pd
+import numpy as np
+import altair as alt
+import pydeck as pdk
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+from nltk import FreqDist
+import networkx as nx
+import webbrowser as wb
 
 from PIL import Image
 from pathlib import Path  # para a logo
 import base64  # para a logo
 
-# from functions import *
 
 # LOGO
 
@@ -81,7 +80,7 @@ def main():
     
     st.sidebar.markdown('**Hey! Linkedin do nosso time:**')
     
-    # st.sidebar.markdown('')
+#     st.sidebar.markdown('')
     if st.sidebar.button('Denis Dinardi'):
         denis = 'https://www.linkedin.com/in/denisdinardi/'
         wb.open_new_tab(denis)
