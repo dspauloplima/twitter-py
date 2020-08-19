@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk import FreqDist
+from nltk.probability import FreqDist
 
 from wordcloud import WordCloud
 from string import punctuation
