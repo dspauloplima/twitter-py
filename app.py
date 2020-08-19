@@ -9,7 +9,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from nltk import FreqDist
 import networkx as nx
-import bokeh.models.widgets import Div
+from bokeh.models.widgets import Div
 
 from PIL import Image
 from pathlib import Path  # para a logo
