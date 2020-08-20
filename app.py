@@ -60,7 +60,7 @@ def main():
     
     
     st.sidebar.markdown(" ")
-    st.sidebar.markdown("**• [Download](https://bit.ly/39YuSuv)**")
+    st.sidebar.markdown("**• [Documentação](https://bit.ly/39YuSuv)**")
     st.sidebar.markdown(
         """ Definimos uma busca dos **500 tweets** mais recentes para análise!""")
     st.sidebar.markdown(""" ## Escreva o que quer buscar: """)
