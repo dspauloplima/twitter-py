@@ -50,25 +50,25 @@ def main():
     """
 
     # # SIDE BAR
-    
-    
+
     st.sidebar.markdown(" ")
     st.sidebar.markdown("**• [Documentação](https://bit.ly/39YuSuv)**")
-    st.sidebar.markdown(
-        """ **Defina a quantidade de tweets que deseja pesquisar:**""")
+
+    st.sidebar.markdown('**Defina a quantidade de tweets que deseja pesquisar:**')
     qnt_input = st.sidebar.slider('', 500, 2000)
-    st.sidebar.markdown(""" ## Escreva o que quer buscar: """)
-    
+
     # word input
+    st.sidebar.markdown('**Defina o que deseja pesquisar:**')
     input_word = st.sidebar.text_input('')
-    
+
     # checks
-    st.sidebar.markdown(""" ### Selecione as opções de busca: """)
+    st.sidebar.markdown(""" **Selecione as opções de busca:** """)
     check1 = st.sidebar.checkbox('Os 5 tweets mais retweetados')
     check2 = st.sidebar.checkbox('Os 10 usuários mais citados')
     check3 = st.sidebar.checkbox('As palavras mais usadas')
     check4 = st.sidebar.checkbox('As hashtags mais usada e suas relações')
-    
+    st.sidebar.markdown('----')
+
     #### LINKEDINS
     
     st.sidebar.markdown('**Hey! Conheça o nosso time:**')
