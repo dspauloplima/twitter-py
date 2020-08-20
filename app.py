@@ -60,7 +60,7 @@ def main():
     
     
     st.sidebar.markdown(" ")
-    st.sidebar.markdown("**• Documentation:** [Download](https://bit.ly/39YuSuv)")
+    st.sidebar.markdown("**• [Download](https://bit.ly/39YuSuv)**")
     st.sidebar.markdown(
         """ Definimos uma busca dos **500 tweets** mais recentes para análise!""")
     st.sidebar.markdown(""" ## Escreva o que quer buscar: """)
@@ -78,8 +78,6 @@ def main():
     #### LINKEDINS
     
     st.sidebar.markdown('**Hey! Conheça o nosso time:**')
-    
-    st.sidebar.markdown('')
     st.sidebar.markdown('[Denis Dinardi](https://www.linkedin.com/in/denisdinardi/)')          
     st.sidebar.markdown('[Edson Guilherme](https://www.linkedin.com/in/edson-guilherme-appoloni-correia-19897134/)')    
     st.sidebar.markdown('[João Pedro](https://jpchagas.github.io/)')    
@@ -144,6 +142,9 @@ def main():
             plot_freq['layout']['yaxis']['autorange'] = "reversed"
     
             st.plotly_chart(plot_freq)
+        
+            st.markdown(f'\nThe search term ({input_word.upper()}) has returned {freq_all_words.most_common(1)[0][1]} times.')
+
     
             # Plota a nuvem de palavras
             """ ### Nuvem de Palavras
@@ -160,9 +161,7 @@ def main():
             plt.imshow(wordcloud, interpolation="bilinear")
             plt.axis("off")
             st.pyplot()
-            
-            st.markdown(f'\nThe search term ({input_word.upper()}) has returned {freq_all_words.most_common(1)[0][1]} times.')
-    
+               
         #######################################################################
     
         # ASSOCIAÇÃO DE HASHTAGS
