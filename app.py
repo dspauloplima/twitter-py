@@ -8,7 +8,6 @@ import pydeck as pdk
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import networkx as nx
-from bokeh.models.widgets import Div
 from collections import Counter
 
 from PIL import Image
