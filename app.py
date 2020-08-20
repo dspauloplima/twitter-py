@@ -7,9 +7,9 @@ import altair as alt
 import pydeck as pdk
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-from nltk import FreqDist
 import networkx as nx
 from bokeh.models.widgets import Div
+from collections import Counter
 
 from PIL import Image
 from pathlib import Path  # para a logo
