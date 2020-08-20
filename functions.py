@@ -6,12 +6,11 @@ import numpy as np
 import plotly
 import matplotlib.pyplot as plt
 
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.probability import FreqDist
+import spacy
+from spacy.lang.pt import STOP_WORDS
+from collections import Counter
 
 from wordcloud import WordCloud
-from string import punctuation
 
 # FUNCTION OF 5 MOST RECENT TWEETS WITH THE HIGHEST NUMBER OF RETWEETS
 
