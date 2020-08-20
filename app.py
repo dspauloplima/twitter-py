@@ -134,7 +134,7 @@ def main():
     
             freq_all_words = Counter(words)
             freq_df = pd.DataFrame(data=freq_all_words.most_common(
-                10), columns=['Palavras', 'Frequências'])
+                10), columns=['Palavras', 'Frequências'])[1:]
     
             # Plota as palavras mais frequentes
     
@@ -160,6 +160,8 @@ def main():
             plt.imshow(wordcloud, interpolation="bilinear")
             plt.axis("off")
             st.pyplot()
+            
+            st.markdown(f'\nThe search term ({TERM.upper()}) has returned {freq_all_words.most_common(1)[0][1]} times.')
     
         #######################################################################
     
