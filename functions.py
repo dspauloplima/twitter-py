@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.probability import FreqDist
-nltk.download('punkt')
 
 from wordcloud import WordCloud
 from string import punctuation
