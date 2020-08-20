@@ -161,7 +161,7 @@ def main():
             plt.axis("off")
             st.pyplot()
             
-            st.markdown(f'\nThe search term ({TERM.upper()}) has returned {freq_all_words.most_common(1)[0][1]} times.')
+            st.markdown(f'\nThe search term ({input_word.upper()}) has returned {freq_all_words.most_common(1)[0][1]} times.')
     
         #######################################################################
     
