@@ -140,6 +140,13 @@ def most_words(df_tweets):
     sub_text = re.sub('[-|0-9]',' ', sub_text)
     sub_text = sub_text.replace(punctuation, ' ')
     sub_text = re.findall('\\w+', sub_text)
+    
+    # Special Replacement
+    sub_text = sub_text.replace('inteligencia', 'inteligência')
+    sub_text = sub_text.replace('inteligência artificial', 'IA')
+    sub_text = sub_text.replace('inteligencia artificial', 'IA')
+    sub_text = sub_text.replace('artificial intelligence', 'IA')  
+    
     sub_text = ' '.join(sub_text)
 
     # STOPWORDS REMOVAL
