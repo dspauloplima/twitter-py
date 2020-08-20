@@ -7,7 +7,7 @@ import plotly
 import matplotlib.pyplot as plt
 
 import spacy
-from spacy.lang.pt import STOP_WORDS
+from spacy.lang.pt import STOP_WORDS, Portuguese
 from collections import Counter
 import re
 
@@ -143,7 +143,7 @@ def most_words(df_tweets):
     # STOPWORDS REMOVAL
 
     spacy_stopwords = STOP_WORDS
-    nlp = spacy.load('pt_core_news_sm')
+    nlp = Portuguese()
 
     stopswords_1 = ['pra', 'pro', 'tb', 'tbm', 'vc', 'aí', 'tá', 'ah', 'oq', 'ta'
                     'eh', 'oh', 'msm', 'q', 'r', 'lá', 'ue', 'ué', 'pq', 'ti', 'tu'
@@ -152,19 +152,19 @@ def most_words(df_tweets):
 
     stopwords_2 = ['a','as', 'e', 'es', 'i', 'o', 'os', 'u']
 
-    stopwords_externo = pd.read_csv('portuguese_stopwords.txt', header=None).values.tolist()
-    # stopwords_3 = s.values.tolist()
+    stopwords_externo = pd.read_csv('portuguese_stopwords.txt', header=None)
+    stopwords_3 = stopwords_externo.values.tolist()
 
-    stopwords_3 = []
-    for i in stopwords_externo:
-        stopwords_3.append(i[0])
+    stopwords_4 = []
+    for i in stopwords_3:
+        stopwords_4.append(i[0])
 
-    stopword_list = set(stopswords_1 + stopwords_2 + stopwords_3)
+    stopword_list = set(stopswords_1 + stopwords_2 + stopwords_4)
 
     spacy_stopwords.update(stopword_list)
 
-    doc = nlp(sub_text)
-    words = [token.text for token in doc if token.is_stop != True]
+    doc = nlp.tokenizer(sub_text)
+    words = [token.text for token in doc if token.is_stop != spacy_stopwords]
     final_words = [w for w in words if w not in spacy_stopwords]
 
     return final_words
