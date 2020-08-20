@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import spacy
 from spacy.lang.pt import STOP_WORDS
 from collections import Counter
+import re
 
 from wordcloud import WordCloud
 
