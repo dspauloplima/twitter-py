@@ -126,50 +126,47 @@ def most_arroba(data):
 
 
 def most_words(df_tweets):
+    
+    def get_all_text(tweet_text):
+            txt = ''
+            for t in tweet_text:
+                txt += t
+            return txt
 
-    import pandas as pd
-    import nltk
-    import re
-    import plotly
+    all_text = get_all_text(df_tweets.tweet_text).lower()
 
-    from nltk.corpus import stopwords
-    from wordcloud import WordCloud
-    import matplotlib.pyplot as plt
-    from nltk.tokenize import word_tokenize
-    from string import punctuation
+    # TEXT CLEANING
 
-    def get_all_text(tweets):
-        txt = ''
-        for t in tweets:
-            txt += t
-        return txt
+    sub_text = re.sub(r'http\S+', '', all_text)
+    sub_text = re.sub('[-|0-9]',' ', sub_text)
+    sub_text = re.findall('\\w+', sub_text)
+    sub_text = ' '.join(sub_text)
 
-    all_text = get_all_text(df_tweets.tweet)
+    # STOPWORDS REMOVAL
 
-    sub_text = re.sub('[-|0-9]', '', all_text)
-    sub_text = re.sub(r'[-./*_~ºª¿{}æ·?#!$&%@,":"";()\']', '', sub_text)
-    sub_text = re.sub(r'http\S+', '', sub_text)
-    sub_text = sub_text.lower()
-    sub_text = re.sub('ai', 'ia', sub_text)
+    spacy_stopwords = STOP_WORDS
+    nlp = spacy.load('pt_core_news_sm')
 
-    nltk_stopwords = nltk.corpus.stopwords.words('portuguese')
-    my_stopwords = ['pra', 'pro', 'tb', 'vc', 'aí', 'tá', 'ah',
-                    'eh', 'oh', 'msm', 'q', 'r', 'lá', 'ue', 'ué', 'pq']
+    stopswords_1 = ['pra', 'pro', 'tb', 'tbm', 'vc', 'aí', 'tá', 'ah', 'oq', 'ta'
+                    'eh', 'oh', 'msm', 'q', 'r', 'lá', 'ue', 'ué', 'pq', 'ti', 'tu'
+                   'rn', 'mt', 'n', 'mais', 'menos', 'pode', 'vai', 'da', 'de',
+                   'do', 'uau', 'estao']
 
-    s = pd.read_csv('portuguese_stopwords.txt', header=None)
-    stop = s.values.tolist()
-    stopwords2 = []
-    for i in stop:
-        stopwords2.append(i[0])
+    stopwords_2 = ['a','as', 'e', 'es', 'i', 'o', 'os', 'u']
 
-    def RemoveStopWords(text):
-        stopwords = set(nltk_stopwords + my_stopwords +
-                        stopwords2 + list(punctuation))
-        word = [i for i in text.split() if not i in stopwords]
-        return (" ".join(word))
+    stopwords_externo = pd.read_csv('portuguese_stopwords.txt', header=None).values.tolist()
+    # stopwords_3 = s.values.tolist()
 
-    clean_txt = RemoveStopWords(sub_text)
+    stopwords_3 = []
+    for i in stopwords_externo:
+        stopwords_3.append(i[0])
 
-    words = word_tokenize(clean_txt)
+    stopword_list = set(stopswords_1 + stopwords_2 + stopwords_3)
 
-    return words
+    spacy_stopwords.update(stopword_list)
+
+    doc = nlp(sub_text)
+    words = [token.text for token in doc if token.is_stop != True]
+    final_words = [w for w in words if w not in spacy_stopwords]
+
+    return final_words
