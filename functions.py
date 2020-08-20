@@ -26,21 +26,19 @@ def extract_data(query, head=5, lang='pt', items=500):
                                   tweet_mode='extended'
                                   ).items(items):
       
-        TWEET.append([tweet.id, tweet.created_at, tweet.user.location, tweet.full_text.replace('\n', ' '),
-                      tweet.retweet_count, [e['text'] for e in tweet._json['entities']['hashtags']]])
-        TW = pd.DataFrame(TWEET, columns=[
-                          'id', 'timestamp', 'location', 'tweet', 'Retweets', 'hashtags'])
+        TWEET.append([tweet.full_text.replace('\n', ' '), tweet.retweet_count, [e['text'] for e in tweet._json['entities']['hashtags']]])
+        TW = pd.DataFrame(TWEET, columns=['tweet', 'retweets', 'hashtags'])
     return TW
 
 
 def five_most_recent_highest_retweets(tw, head=5):
 
     # delete all duplicated texts
-    df_five = tw[['tweet', 'Retweets']].drop_duplicates()
+    df_five = tw[['tweet', 'retweets']].drop_duplicates()
     # aggregate the same texts and adds up the number of different retweets.
     df_five = df_five.groupby('tweet').sum()
     # put retweets_count in descending order
-    df_five = df_five.sort_values(by='Retweets', ascending=False).head(head)
+    df_five = df_five.sort_values(by='retweets', ascending=False).head(head)
 
     return df_five
 
@@ -72,7 +70,7 @@ def most_hashtag(df_tweets):
 
     freq = FreqDist(hashtags2)
     hash_most_freq = pd.DataFrame(data=freq.most_common(
-        10), columns=['Hashtag', 'Frequency'])
+        10), columns=['hashtag', 'frequency'])
     list_freq = list(hash_most_freq.Hashtag)
 
     all_hashtags_lower = [[h.lower() for h in line] for line in all_hashtags]
@@ -132,7 +130,7 @@ def most_words(df_tweets):
                 txt += t
             return txt
 
-    all_text = get_all_text(df_tweets.tweet_text).lower()
+    all_text = get_all_text(df_tweets.tweet).lower()
 
     # TEXT CLEANING
 
