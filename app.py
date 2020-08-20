@@ -40,7 +40,7 @@ def load_data(p_input):
 def main():
 
     sidebar_html = "<img src='data:image/png;base64,{}' class='img-fluid'>".format(
-        img_to_bytes("logo.jpg"))
+        img_to_bytes("logo2.png"))
 
 
     st.sidebar.markdown(sidebar_html, unsafe_allow_html=True)
