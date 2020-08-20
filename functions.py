@@ -10,6 +10,7 @@ import spacy
 from spacy.lang.pt import STOP_WORDS, Portuguese
 from collections import Counter
 import re
+from string import punctuation
 
 from wordcloud import WordCloud
 
@@ -137,6 +138,7 @@ def most_words(df_tweets):
 
     sub_text = re.sub(r'http\S+', '', all_text)
     sub_text = re.sub('[-|0-9]',' ', sub_text)
+    sub_text = sub_text.replace(punctuation, ' ')
     sub_text = re.findall('\\w+', sub_text)
     sub_text = ' '.join(sub_text)
 
