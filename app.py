@@ -154,7 +154,7 @@ def main():
     
             words = most_words(df_tweets)  # chamada da funçao
     
-            freq_all_words = FreqDist(words)
+            freq_all_words = Counter(words)
             freq_df = pd.DataFrame(data=freq_all_words.most_common(
                 10), columns=['Palavras', 'Frequências'])
     
