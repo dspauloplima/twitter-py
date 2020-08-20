@@ -72,7 +72,7 @@ def most_hashtag(df_tweets):
     freq = Counter(hashtags2)
     hash_most_freq = pd.DataFrame(data=freq.most_common(
         10), columns=['hashtag', 'frequency'])
-    list_freq = list(hash_most_freq.Hashtag)
+    list_freq = list(hash_most_freq.hashtag)
 
     all_hashtags_lower = [[h.lower() for h in line] for line in all_hashtags]
 
