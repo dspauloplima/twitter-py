@@ -136,18 +136,16 @@ def most_words(df_tweets):
 
     # TEXT CLEANING
     ### Special Replacement
-    sub_text = sub_text.replace('inteligencia', 'inteligência')
-    sub_text = sub_text.replace('inteligência artificial', 'IA')
-    sub_text = sub_text.replace('inteligencia artificial', 'IA')
-    sub_text = sub_text.replace('artificial intelligence', 'IA') 
-    sub_text = sub_text.replace(punctuation, ' ')
+    all_text = all_text.replace('inteligencia', 'inteligência')
+    all_text = all_text.replace('inteligência artificial', 'IA')
+    all_text = all_text.replace('inteligencia artificial', 'IA')
+    all_text = all_text.replace('artificial intelligence', 'IA')
+    all_text = all_text.replace('ia', 'IA')
+    all_text = all_text.replace(punctuation, ' ')
     ###
     sub_text = re.sub(r'http\S+', '', all_text)
     sub_text = re.sub('[-|0-9]',' ', sub_text)
     sub_text = re.findall('\\w+', sub_text)
-    
-
-    
     sub_text = ' '.join(sub_text)
 
     # STOPWORDS REMOVAL
