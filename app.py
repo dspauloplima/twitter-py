@@ -28,13 +28,6 @@ def img_to_bytes(img_path):
 
     # Extração de tweets com a plavra input
 
-
-@st.cache
-def load_data(p_input):
-    df = extract_data(p_input)
-    return df
-
-
 # Side bar
 
 def main():
@@ -62,7 +55,8 @@ def main():
     st.sidebar.markdown(" ")
     st.sidebar.markdown("**• [Documentação](https://bit.ly/39YuSuv)**")
     st.sidebar.markdown(
-        """ Definimos uma busca dos **500 tweets** mais recentes para análise!""")
+        """ **Defina a quantidade de tweets que deseja pesquisar:**""")
+    qnt_input = st.sidebar.slider('', 500, 2000)
     st.sidebar.markdown(""" ## Escreva o que quer buscar: """)
     
     # word input
@@ -88,6 +82,11 @@ def main():
     
     # FUNCTIONS
     
+    @st.cache
+    def load_data(p_input):
+        df = extract_data(p_input, items=qnt_input)
+        return df
+    
     if input_word != '':
         df_tweets = load_data(input_word)
         st.sidebar.markdown(len(input_word))
@@ -95,7 +94,7 @@ def main():
         #######################################################################
     
         # 5 TWEETS MAIS RETWEETADOS
-    
+        st.markdown(f'Você selecionou um range de busca de **{qnt_input}** tweets.')
         if check1:
     
             """ ### Os 5 Tweets Mais Retweetados:"""
