@@ -78,36 +78,15 @@ def main():
     
     #### LINKEDINS
     
-    st.sidebar.markdown('**Hey! Linkedin do nosso time:**')
+    st.sidebar.markdown('**Hey! Conheça o nosso time:**')
     
-#     st.sidebar.markdown('')
-    if st.sidebar.button('Denis Dinardi'):
-        js = "window.open('www.linkedin.com/in/denisdinardi/')"  # New tab or window
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
-    if st.sidebar.button('Edson Guilherme'):
-        js = "window.open('www.linkedin.com/in/edson-guilherme-appoloni-correia-19897134/')"  # New tab or window
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
-    if st.sidebar.button('João Pedro'):
-        js = "window.open('www.linkedin.com/in/joão-chagas/')"  # New tab or window
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
-    if st.sidebar.button('Nayara Moura'):
-        js = "window.open('www.linkedin.com/in/nayara-cfm/')"  # New tab or window
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
-    if st.sidebar.button('Paulo Lima'):
-        paulo = 'https://www.linkedin.com/in/dspaulolima'
-        js = "window.open('www.linkedin.com/in/dspaulolima/')"  # New tab or window
-        html = '<img src onerror="{}">'.format(js)
-        div = Div(text=html)
-        st.bokeh_chart(div)
-    
+    st.sidebar.markdown('')
+    st.sidebar.markdown('[Denis Dinardi](https://www.linkedin.com/in/denisdinardi/)')          
+    st.sidebar.markdown('[Edson Guilherme](https://www.linkedin.com/in/edson-guilherme-appoloni-correia-19897134/)')    
+    st.sidebar.markdown('[João Pedro](https://jpchagas.github.io/)')    
+    st.sidebar.markdown('[Nayara Moura](https://www.linkedin.com/in/nayara-cfm/)')  
+    st.sidebar.markdown('[Paulo Lima](https://dspaulolima.github.io)')
+   
     # FIM SIDE BAR
     
     # FUNCTIONS
