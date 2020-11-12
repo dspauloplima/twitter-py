@@ -46,7 +46,7 @@ def main():
     O **Twitter** é uma rede social que permite ao usuário expor o que pensa, enviar e receber 
     atualizações de outros usuários, acompanhar notícias, avaliar produtos e serviços, etc. 
     Isso torna essa rede social uma grande fonte de dados onde é possível buscar pelo assunto de interesse 
-    ou, mais profissionalmente, saber como o produdo ou serviço da sua empresa está sendo visto pelo cosumidor.
+    ou, mais profissionalmente, saber como o produdo ou serviço da sua empresa está sendo visto pelo consumidor.
     """
 
     # # SIDE BAR
