@@ -66,7 +66,7 @@ def main():
     check1 = st.sidebar.checkbox('Os 5 tweets mais retweetados')
     check2 = st.sidebar.checkbox('Os 10 usuários mais citados')
     check3 = st.sidebar.checkbox('As palavras mais usadas')
-    check4 = st.sidebar.checkbox('As hashtags mais usada e suas relações')
+    check4 = st.sidebar.checkbox('As hashtags mais usadas e suas relações')
     st.sidebar.markdown('----')
 
     #### LINKEDINS
